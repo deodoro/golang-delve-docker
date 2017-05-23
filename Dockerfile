@@ -2,8 +2,7 @@ FROM golang
 
 RUN chsh -s /bin/bash
 RUN mkdir /app
-ADD delve /go/src/github.com/derekparker/delve
-RUN cd /go/src/github.com/derekparker/delve;find . -type f | xargs -n 5 touch;make install
+ADD go get github.com/derekparker/delve/cmd/dlv
 ENV GOPATH=/go:/app
 ENV PATH=$PATH:/app
 
